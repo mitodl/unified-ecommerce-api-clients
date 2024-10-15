@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "unified-ecommerce-api-clients"
+version = "2024.5.24"
+description = ""
+authors = []
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+bumpver = "^2023.1129"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.bumpver]
+current_version = "2024.1.1"
+version_pattern = "YYYY.MM.DD[.INC0]"
+commit = false
+tag = false
+push = false
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = [
+    '^version = "{version}"',
+]
+"src/typescript/unified-ecommerce-api-axios/package.json" = [
+    '"version": "{version}"',
+]
+"VERSION" = [
+    "^{version}",
+]

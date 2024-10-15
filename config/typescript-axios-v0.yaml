@@ -1,0 +1,8 @@
+generatorName: typescript-axios
+outputDir: unified-ecommerce-api-clients/src/typescript/unified-ecommerce-api-axios/src/v0
+inputSpec: unified-ecommerce/openapi/specs/v0.yaml
+ignoreFileOverride: unified-ecommerce-api-clients/.openapi-generator-ignore
+additionalProperties:
+  paramNaming: original
+  useSingleRequestParameter: true
+  supportsES6: false
