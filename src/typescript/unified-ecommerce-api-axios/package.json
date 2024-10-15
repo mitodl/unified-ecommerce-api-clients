@@ -1,0 +1,44 @@
+{
+  "name": "@mitodl/unified-ecommerce-api-axios",
+  "version": "2024.5.24",
+  "description": "Library for requesting data from unified-ecommerce APIs",
+  "main": "dist/cjs/index.js",
+  "scripts": {
+    "build": "rm -rf dist && yarn build:esm && yarn build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module commonjs --outDir dist/cjs",
+    "prepack": "npm run build"
+  },
+  "author": "MIT Open Learning Engineering <oldevops@mit.edu>",
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "default": "./dist/esm/index.js"
+    },
+    "./v0": {
+      "import": "./dist/esm/v0/index.js",
+      "require": "./dist/cjs/v0/index.js",
+      "default": "./dist/esm/v0/index.js"
+    },
+    "./v1": {
+      "import": "./dist/esm/v1/index.js",
+      "require": "./dist/cjs/v1/index.js",
+      "default": "./dist/esm/v1/index.js"
+    }
+  },
+  "license": "BSD-3",
+  "devDependencies": {
+    "ts-node": "10.9.2",
+    "typescript": "5.4.5"
+  },
+  "dependencies": {
+    "@types/node": "^20.11.19",
+    "axios": "^1.6.5"
+  },
+  "packageManager": "yarn@4.2.2"
+}
