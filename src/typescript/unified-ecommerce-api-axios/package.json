@@ -1,6 +1,6 @@
 {
   "name": "@mitodl/unified-ecommerce-api-axios",
-  "version": "2024.12.4",
+  "version": "2024.12.16",
   "description": "Library for requesting data from unified-ecommerce APIs",
   "main": "dist/cjs/index.js",
   "scripts": {
