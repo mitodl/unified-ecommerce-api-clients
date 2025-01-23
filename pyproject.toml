@@ -15,7 +15,6 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.bumpver]
-current_version = "2024.1.1"
 version_pattern = "YYYY.MM.DD[.INC0]"
 commit = false
 tag = false
