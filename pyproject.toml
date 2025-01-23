@@ -15,6 +15,7 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.bumpver]
+current_version = "2025.1.23"
 version_pattern = "YYYY.MM.DD[.INC0]"
 commit = false
 tag = false
@@ -23,6 +24,7 @@ push = false
 [tool.bumpver.file_patterns]
 "pyproject.toml" = [
     '^version = "{version}"',
+    '^current_version = "{version}"',
 ]
 "src/typescript/unified-ecommerce-api-axios/package.json" = [
     '"version": "{version}"',
