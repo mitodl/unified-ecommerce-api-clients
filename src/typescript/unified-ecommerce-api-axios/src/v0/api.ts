@@ -1544,6 +1544,18 @@ export interface OrderHistory {
      * @memberof OrderHistory
      */
     'updated_on': string;
+    /**
+     * 
+     * @type {SimpleDiscount}
+     * @memberof OrderHistory
+     */
+    'discounts_applied': SimpleDiscount;
+    /**
+     * 
+     * @type {Transaction}
+     * @memberof OrderHistory
+     */
+    'transactions': Transaction;
 }
 
 
@@ -2086,6 +2098,55 @@ export interface TaxRate {
 
 
 /**
+ * Serializer for transactions.
+ * @export
+ * @interface Transaction
+ */
+export interface Transaction {
+    /**
+     * 
+     * @type {string}
+     * @memberof Transaction
+     */
+    'transaction_id': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Transaction
+     */
+    'transaction_type': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Transaction
+     */
+    'amount': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Transaction
+     */
+    'created_on': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Transaction
+     */
+    'updated_on': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Transaction
+     */
+    'reason': string;
+    /**
+     * 
+     * @type {any}
+     * @memberof Transaction
+     */
+    'data': any;
+}
+/**
  * Serializer for User model.
  * @export
  * @interface User
@@ -2098,17 +2159,23 @@ export interface User {
      */
     'id': number;
     /**
-     * Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.
+     * The SSO ID (usually a Keycloak UUID) for the user.
      * @type {string}
      * @memberof User
      */
-    'username': string;
+    'global_id'?: string;
     /**
      * 
      * @type {string}
      * @memberof User
      */
-    'email'?: string;
+    'username': string;
+    /**
+     * Return the email.
+     * @type {string}
+     * @memberof User
+     */
+    'email': string | null;
     /**
      * 
      * @type {string}
@@ -2121,6 +2188,12 @@ export interface User {
      * @memberof User
      */
     'last_name'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof User
+     */
+    'name'?: string;
 }
 
 /**

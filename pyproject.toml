@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "unified-ecommerce-api-clients"
-version = "2025.1.24"
+version = "2025.2.11"
 description = ""
 authors = []
 readme = "README.md"
@@ -15,7 +15,7 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.bumpver]
-current_version = "2025.1.24"
+current_version = "2025.2.11"
 version_pattern = "YYYY.MM.DD[.INC0]"
 commit = false
 tag = false
