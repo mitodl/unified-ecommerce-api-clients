@@ -2952,6 +2952,12 @@ export interface Transaction {
      * @memberof Transaction
      */
     'data': any;
+    /**
+     * 
+     * @type {TransactionOrder}
+     * @memberof Transaction
+     */
+    'order': TransactionOrder;
 }
 /**
  * Serializes a transaction\'s purchaser data.
@@ -3013,6 +3019,31 @@ export interface TransactionDataPurchaser {
      * @memberof TransactionDataPurchaser
      */
     'company': string;
+}
+/**
+ * 
+ * @export
+ * @interface TransactionOrder
+ */
+export interface TransactionOrder {
+    /**
+     * 
+     * @type {number}
+     * @memberof TransactionOrder
+     */
+    'id': number;
+    /**
+     * 
+     * @type {string}
+     * @memberof TransactionOrder
+     */
+    'created_on': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof TransactionOrder
+     */
+    'reference_number': string;
 }
 /**
  * Serializer for transactions.
@@ -3445,11 +3476,12 @@ export const MetaApiAxiosParamCreator = function (configuration?: Configuration)
          * @param {number} [limit] Number of results to return per page.
          * @param {string} [name] 
          * @param {number} [offset] The initial index from which to return the results.
+         * @param {string} [sku] 
          * @param {string} [system__slug] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        metaProductList: async (limit?: number, name?: string, offset?: number, system__slug?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        metaProductList: async (limit?: number, name?: string, offset?: number, sku?: string, system__slug?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v0/meta/product/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -3472,6 +3504,10 @@ export const MetaApiAxiosParamCreator = function (configuration?: Configuration)
 
             if (offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+
+            if (sku !== undefined) {
+                localVarQueryParameter['sku'] = sku;
             }
 
             if (system__slug !== undefined) {
@@ -3749,12 +3785,13 @@ export const MetaApiFp = function(configuration?: Configuration) {
          * @param {number} [limit] Number of results to return per page.
          * @param {string} [name] 
          * @param {number} [offset] The initial index from which to return the results.
+         * @param {string} [sku] 
          * @param {string} [system__slug] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async metaProductList(limit?: number, name?: string, offset?: number, system__slug?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PaginatedProductList>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.metaProductList(limit, name, offset, system__slug, options);
+        async metaProductList(limit?: number, name?: string, offset?: number, sku?: string, system__slug?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PaginatedProductList>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.metaProductList(limit, name, offset, sku, system__slug, options);
             const index = configuration?.serverIndex ?? 0;
             const operationBasePath = operationServerMap['MetaApi.metaProductList']?.[index]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
@@ -3899,7 +3936,7 @@ export const MetaApiFactory = function (configuration?: Configuration, basePath?
          * @throws {RequiredError}
          */
         metaProductList(requestParameters: MetaApiMetaProductListRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<PaginatedProductList> {
-            return localVarFp.metaProductList(requestParameters.limit, requestParameters.name, requestParameters.offset, requestParameters.system__slug, options).then((request) => request(axios, basePath));
+            return localVarFp.metaProductList(requestParameters.limit, requestParameters.name, requestParameters.offset, requestParameters.sku, requestParameters.system__slug, options).then((request) => request(axios, basePath));
         },
         /**
          * Viewset for Product model.
@@ -4105,6 +4142,13 @@ export interface MetaApiMetaProductListRequest {
      * @type {string}
      * @memberof MetaApiMetaProductList
      */
+    readonly sku?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof MetaApiMetaProductList
+     */
     readonly system__slug?: string
 }
 
@@ -4288,7 +4332,7 @@ export class MetaApi extends BaseAPI {
      * @memberof MetaApi
      */
     public metaProductList(requestParameters: MetaApiMetaProductListRequest = {}, options?: RawAxiosRequestConfig) {
-        return MetaApiFp(this.configuration).metaProductList(requestParameters.limit, requestParameters.name, requestParameters.offset, requestParameters.system__slug, options).then((request) => request(this.axios, this.basePath));
+        return MetaApiFp(this.configuration).metaProductList(requestParameters.limit, requestParameters.name, requestParameters.offset, requestParameters.sku, requestParameters.system__slug, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
