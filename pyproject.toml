@@ -7,7 +7,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-bumpver = "^2023.1129"
+bumpver = "^2024.1130"
 
 
 [build-system]
