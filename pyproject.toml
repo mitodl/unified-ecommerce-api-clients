@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "unified-ecommerce-api-clients"
-version = "2024.5.24"
+version = "2025.4.16"
 description = ""
 authors = []
 readme = "README.md"
