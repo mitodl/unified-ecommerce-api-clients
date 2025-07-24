@@ -42,7 +42,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@mitodl/unified-ecommerce-api-axios@workspace:."
   dependencies:
-    "@types/node": "npm:^20.11.19"
+    "@types/node": "npm:^22.0.0"
     axios: "npm:^1.6.5"
     ts-node: "npm:10.9.2"
     typescript: "npm:5.8.3"
@@ -77,12 +77,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^20.11.19":
-  version: 20.19.4
-  resolution: "@types/node@npm:20.19.4"
+"@types/node@npm:^22.0.0":
+  version: 22.16.5
+  resolution: "@types/node@npm:22.16.5"
   dependencies:
     undici-types: "npm:~6.21.0"
-  checksum: 10c0/53f40c963d1804d2e87ad942636fee4be0e1ca88f2173b2a52b198797747bfb55d9ba6613cd918a0c5083a03b87d58688497c7ea58a8f3108fc86a5d627528e1
+  checksum: 10c0/93a245e96a01f4a6aa38475000070292a9299e17b95bc1fc8180c652fb3a62f9b3b9ec0b78f9fc6a78b9274d3dfce456e80c7bb68b5357c8f7dbf581df4408c1
   languageName: node
   linkType: hard
 
