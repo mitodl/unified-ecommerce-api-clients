@@ -40,5 +40,5 @@
     "@types/node": "^20.11.19",
     "axios": "^1.6.5"
   },
-  "packageManager": "yarn@4.9.2"
+  "packageManager": "yarn@4.9.3"
 }
